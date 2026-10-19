@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Challenge Sports Club | Abu Dhabi</title>
+<meta name="description" content="Challenge Sports Club, Abu Dhabi. Training for kids and adults. Book a free trial on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* Concept: match night. Floodlit pitch green, scoreboard yellow, black. The hero is a challenge you can actually play. */
+:root{--black:#0B0D0B;--pitch:#0F5132;--grass:#1C7A45;--volt:#E6FF2E;--white:#F4F6F2;--mute:#8E978F;--line:rgba(244,246,242,.12);
+--display:'Big Shoulders Display',Impact,sans-serif;--body:'Archivo',system-ui,sans-serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}p{max-width:56ch}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.86;text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+.v{color:var(--volt)}
+:focus-visible{outline:3px solid var(--volt);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:6px;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;border:0;cursor:pointer;font-family:var(--body);transition:transform .15s}
+.btn:hover{transform:translateY(-2px) skewX(-4deg)}
+.btn svg{width:18px;height:18px}
+.btn-v{background:var(--volt);color:var(--black)}.btn-o{box-shadow:inset 0 0 0 2px var(--white)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(11,13,11,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{text-decoration:none;font-family:var(--display);font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.logo span{color:var(--volt)}
+.menu{display:flex;gap:24px;font-weight:600;font-size:15px}.menu a{text-decoration:none;color:var(--mute)}.menu a:hover{color:var(--white)}
+.nav .btn{padding:10px 16px;font-size:14px}
+.hero{background:radial-gradient(70% 60% at 70% 20%,rgba(230,255,46,.1),transparent 60%),linear-gradient(180deg,var(--black),var(--pitch))}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;padding-block:clamp(40px,6vw,80px)}
+.hero-copy{min-width:0}
+.k{font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--volt)}
+.hero h1{font-size:clamp(76px,12vw,190px);margin:16px 0}
+.hero .lead{color:#C5CEC6;font-size:clamp(17px,1.5vw,20px);margin-bottom:28px;max-width:38ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stage{position:relative;aspect-ratio:1/1;min-width:0}
+#ball{position:absolute;inset:0;width:100%;height:100%;cursor:pointer;touch-action:manipulation}
+.board{position:absolute;top:2%;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:#000;border:2px solid #222;border-radius:8px;overflow:hidden}
+.board div{padding:8px 16px;text-align:center}
+.board span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.board b{font-family:var(--display);font-size:44px;line-height:1;color:var(--volt);font-variant-numeric:tabular-nums}
+.stage .hint{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--white);white-space:nowrap;background:rgba(0,0,0,.4);padding:8px 14px;border-radius:6px}
+.lines{height:4px;background:repeating-linear-gradient(90deg,var(--white) 0 40px,transparent 40px 80px);opacity:.25}
+section{padding-block:clamp(70px,9vw,120px)}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);align-items:end;margin-bottom:clamp(30px,4vw,50px)}
+.hd h2{font-size:clamp(56px,8vw,130px)}.hd p{color:var(--mute)}
+.pro{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.p{background:#141714;border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:10px;text-decoration:none;min-height:300px;min-width:0;transition:border-color .2s,transform .2s}
+.p:hover{border-color:var(--volt);transform:translateY(-4px)}
+.p .age{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--volt)}
+.p h3{font-size:clamp(40px,3.8vw,56px)}
+.p p{color:var(--mute);font-size:16px}
+.p .go{margin-top:auto;font-weight:800;text-transform:uppercase;font-size:14px;letter-spacing:.06em}
+.trial{background:var(--volt);color:var(--black)}
+.trial .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,6vw,90px);align-items:center}
+.trial h2{font-size:clamp(64px,9vw,150px)}
+.trial p{font-size:19px;margin-top:14px;font-weight:600}
+.trial .btn{background:var(--black);color:var(--volt)}
+.ticket{border:3px dashed var(--black);border-radius:12px;padding:26px;display:grid;gap:10px}
+.ticket b{font-family:var(--display);font-size:64px;line-height:.9;text-transform:uppercase}
+.ticket span{font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.w{padding:30px 24px 30px 0;border-bottom:1px solid var(--line);min-width:0}
+.w b{font-family:var(--display);font-size:80px;line-height:.85;color:var(--volt)}
+.w h3{font-size:34px;margin:10px 0 6px}.w p{color:var(--mute);font-size:16px}
+.parents{background:var(--pitch)}
+.parents .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.parents h2{font-size:clamp(52px,7vw,110px)}
+.parents ul{list-style:none;display:grid;gap:10px}
+.parents li{background:rgba(0,0,0,.25);border-radius:8px;padding:16px 18px;font-weight:600;display:flex;gap:12px}
+.parents li::before{content:"✓";color:var(--volt);font-weight:800}
+.book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:start}
+.book h2{font-size:clamp(60px,8vw,130px);margin-bottom:20px}
+.r{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.r span{font-weight:800;color:var(--volt);text-transform:uppercase;font-size:13px;letter-spacing:.1em;padding-top:3px}
+form{background:#141714;border:1px solid var(--line);border-radius:12px;padding:clamp(22px,4vw,34px);display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+form h3{grid-column:1/-1;font-size:48px}
+label{display:grid;gap:6px;font-weight:600;font-size:14px;color:var(--mute)}
+input,select{font:inherit;font-size:16px;padding:13px;border-radius:6px;border:1px solid var(--line);background:var(--black);color:var(--white);width:100%}
+select option{color:#111}
+input:focus,select:focus{outline:none;border-color:var(--volt)}
+form .btn{grid-column:1/-1;justify-content:center}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:24px;font-size:14px;color:var(--mute);border-top:1px solid var(--line)}
+.dock{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;transform:translateY(160%);transition:transform .5s var(--ease)}
+.dock.show{transform:none}
+@media (max-width:980px){.menu{display:none}.hero .wrap,.hd,.trial .wrap,.parents .wrap,.book .wrap{grid-template-columns:1fr}.stage{max-width:440px;width:100%;margin:0 auto}.pro{grid-template-columns:1fr 1fr}.why{grid-template-columns:1fr}}
+@media (max-width:560px){.pro,form{grid-template-columns:1fr}.p{min-height:0}.r{grid-template-columns:1fr;gap:2px}.nav .btn span{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2 0 12 0 5.5 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4z"/></symbol></svg>
+
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Challenge<span>.</span></a>
+  <nav class="menu" aria-label="Main"><a href="#programs">Programs</a><a href="#trial">Free trial</a><a href="#parents">Parents</a><a href="#join">Join</a></nav>
+  <a class="btn btn-v wa" data-msg="Hi Challenge Sports Club! I'd like to book a free trial." href="#"><svg><use href="#wa"/></svg><span>Free trial</span></a>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="k">Sports Club · Abu Dhabi</span>
+      <h1>Accept the <span class="v">challenge.</span></h1>
+      <p class="lead">Training for kids, teens and adults who want to get fitter, play better, and push a little further every week.</p>
+      <div class="ctas">
+        <a class="btn btn-v wa" id="heroB" data-msg="Hi Challenge Sports Club! I'd like to book a free trial." href="#"><svg><use href="#wa"/></svg>Book a free trial</a>
+        <a class="btn btn-o" href="#programs">Programs</a>
+      </div>
+    </div>
+    <div class="stage">
+      <canvas id="ball" aria-label="A 3D football. Tap it to keep it in the air."></canvas>
+      <div class="board"><div><span>Touches</span><b id="sc">0</b></div><div><span>Best</span><b id="bs">0</b></div></div>
+      <span class="hint" id="hint">Tap the ball. Don't let it drop.</span>
+    </div>
+  </div>
+  <div class="lines" aria-hidden="true"></div>
+</section>
+
+<section id="programs">
+  <div class="wrap">
+    <div class="hd"><h2>Pick your <span class="v">squad.</span></h2><p>Tap a program to ask about times and prices.</p></div>
+    <div class="pro">
+      <a class="p wa" data-msg="Hi, I'd like to ask about kids' training." href="#"><span class="age">Ages 4–8</span><h3>Little Champs</h3><p>First skills, coordination and a lot of fun.</p><span class="go">Ask about it →</span></a>
+      <a class="p wa" data-msg="Hi, I'd like to ask about junior training." href="#"><span class="age">Ages 9–15</span><h3>Juniors</h3><p>Technique, teamwork and match play.</p><span class="go">Ask about it →</span></a>
+      <a class="p wa" data-msg="Hi, I'd like to ask about adult training." href="#"><span class="age">16+</span><h3>Adults</h3><p>Stay fit, play hard, meet people.</p><span class="go">Ask about it →</span></a>
+      <a class="p wa" data-msg="Hi, I'd like to ask about private coaching." href="#"><span class="age">All ages</span><h3>1-on-1</h3><p>Private sessions to level up fast.</p><span class="go">Ask about it →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="trial" id="trial">
+  <div class="wrap">
+    <div><h2>First session? On us.</h2><p>Come try a session before you sign up. No commitment, just show up ready to move.</p>
+      <a class="btn wa" style="margin-top:24px" data-msg="Hi Challenge Sports Club! I'd like to claim my free trial session." href="#"><svg><use href="#wa"/></svg>Claim free trial</a></div>
+    <div class="ticket"><span>Admit one</span><b>Free trial</b><span>Challenge Sports Club · Abu Dhabi</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hd"><h2>Why <span class="v">challenge?</span></h2><p>Because the best version of you is one session away.</p></div>
+    <div class="why">
+      <div class="w"><b>01</b><h3>Real coaches</h3><p>Coaches who correct, encourage and actually know your name.</p></div>
+      <div class="w"><b>02</b><h3>Every level</h3><p>First-timers and competitive players train side by side, in the right group.</p></div>
+      <div class="w"><b>03</b><h3>Real progress</h3><p>Small challenges each week, so you can see yourself improve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="parents" id="parents">
+  <div class="wrap">
+    <h2>For <span class="v">parents.</span></h2>
+    <ul><li>Safe, supervised sessions</li><li>Age-grouped training</li><li>Off the screens, onto the field</li><li>Confidence that shows at school too</li><li>Message the coach any time on WhatsApp</li></ul>
+  </div>
+</section>
+
+<section class="book" id="join">
+  <div class="wrap">
+    <div>
+      <h2>Game on.</h2>
+      <div class="r"><span>Club</span><div>Abu Dhabi</div></div>
+      <div class="r"><span>Trial</span><div>First session free</div></div>
+      <div class="r"><span>Booking</span><div>WhatsApp, fastest reply</div></div>
+      <a class="btn btn-o" style="margin-top:24px" href="https://www.google.com/maps/search/?api=1&query=Challenge+Sports+Club+Abu+Dhabi" target="_blank" rel="noopener">Get directions</a>
+    </div>
+    <form id="bk">
+      <h3>Book a trial</h3>
+      <label for="bP">Program<select id="bP"><option>Little Champs (4–8)</option><option>Juniors (9–15)</option><option>Adults (16+)</option><option>1-on-1</option></select></label>
+      <label for="bA">Player's age<input id="bA" type="number" min="3" max="80" placeholder="e.g. 10"></label>
+      <label for="bD">Preferred day<input id="bD" type="date"></label>
+      <label for="bN">Name<input id="bN" type="text" autocomplete="name"></label>
+      <button class="btn btn-v" type="submit"><svg><use href="#wa"/></svg>Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 Challenge Sports Club · Abu Dhabi</span><span>Train · Play · Improve</span></div></footer>
+<div class="dock" id="dock"><a class="btn btn-v wa" data-msg="Hi Challenge Sports Club! I'd like to book a free trial." href="#"><svg><use href="#wa"/></svg>Free trial</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var PHONE='971500000000'; // TODO: real WhatsApp number
+  function url(m){return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(m)}
+  function bind(a){a.href=url(a.dataset.msg);a.target='_blank';a.rel='noopener'}
+  document.querySelectorAll('.wa').forEach(bind);
+  var dock=document.getElementById('dock');addEventListener('scroll',function(){dock.classList.toggle('show',scrollY>innerHeight*.8)},{passive:true});
+  var d=document.getElementById('bD');d.value=new Date().toISOString().slice(0,10);d.min=d.value;
+  document.getElementById('bk').addEventListener('submit',function(e){e.preventDefault();var v=function(i){return document.getElementById(i).value||'-'};
+    window.open(url('Hi Challenge Sports Club! Trial request:\nProgram: '+v('bP')+'\nAge: '+v('bA')+'\nDay: '+v('bD')+'\nName: '+v('bN')),'_blank','noopener')});
+
+  if(!window.THREE)return;
+  var canvas=document.getElementById('ball'),stage=canvas.parentElement,sc=document.getElementById('sc'),bs=document.getElementById('bs'),hint=document.getElementById('hint'),heroB=document.getElementById('heroB');
+  try{
+    var R=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+    R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;
+    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(32,1,.1,100);C.position.set(0,2,13);C.lookAt(0,1.2,0);
+    function col(h){return new THREE.Color(h).convertSRGBToLinear()}
+    var env=new THREE.Scene();env.add(new THREE.Mesh(new THREE.BoxGeometry(30,30,30),new THREE.MeshBasicMaterial({color:col(0x10301f),side:THREE.BackSide})));
+    function panel(w,h,x,y,z,c,i){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:col(c).multiplyScalar(i),side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);env.add(m)}
+    panel(4,4,-8,9,4,0xffffff,4);panel(4,4,8,9,4,0xffffff,4);panel(10,2,0,-8,3,0x1C7A45,1.5);
+    var pm=new THREE.PMREMGenerator(R);S.environment=pm.fromScene(env,.03).texture;
+    var flood=new THREE.DirectionalLight(0xffffff,1.3);flood.position.set(-5,10,6);S.add(flood);
+    // ball texture: classic pentagon pattern painted on canvas (equirect)
+    var cv=document.createElement('canvas');cv.width=1024;cv.height=512;var cx=cv.getContext('2d');cx.fillStyle='#f4f4f0';cx.fillRect(0,0,1024,512);
+    cx.fillStyle='#111';
+    function pent(x,y,r){cx.beginPath();for(var k=0;k<5;k++){var a=-Math.PI/2+k*2*Math.PI/5;cx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}cx.closePath();cx.fill()}
+    var pts=[[512,40],[512,472],[128,180],[384,180],[640,180],[896,180],[0,330],[256,330],[512,330],[768,330],[1024,330],[128,256]];
+    pts.forEach(function(p,i){var r=p[1]<60||p[1]>450?220:58;if(p[1]<60||p[1]>450){cx.fillRect(0,p[1]<60?0:470,1024,42)}else pent(p[0],p[1],r)});
+    cx.strokeStyle='rgba(0,0,0,.25)';cx.lineWidth=3;for(var s=0;s<12;s++){cx.beginPath();cx.moveTo(s*86,0);cx.lineTo(s*86+40,512);cx.stroke()}
+    var tex=new THREE.CanvasTexture(cv);tex.encoding=THREE.sRGBEncoding;
+    var ball=new THREE.Mesh(new THREE.IcosahedronGeometry(.9,5),new THREE.MeshPhysicalMaterial({map:tex,roughness:.35,clearcoat:.6,clearcoatRoughness:.2}));S.add(ball);
+    // grass disc + shadow
+    var grass=new THREE.Mesh(new THREE.CircleGeometry(5,64),new THREE.MeshStandardMaterial({color:col(0x1C7A45),roughness:1}));grass.rotation.x=-Math.PI/2;grass.position.y=-1.6;S.add(grass);
+    for(var l=0;l<5;l++){var stripe=new THREE.Mesh(new THREE.PlaneGeometry(10,.9),new THREE.MeshBasicMaterial({color:col(0x23904F),transparent:true,opacity:.5}));stripe.rotation.x=-Math.PI/2;stripe.position.set(0,-1.59,-4+l*2);S.add(stripe)}
+    var shadow=new THREE.Mesh(new THREE.CircleGeometry(.9,32),new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:.35}));shadow.rotation.x=-Math.PI/2;shadow.position.y=-1.58;S.add(shadow);
+    function size(){var w=canvas.clientWidth,h=canvas.clientHeight;if(!w)return;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+    size();addEventListener('resize',size);
+    var pos=new THREE.Vector3(0,3,0),vel=new THREE.Vector3(),spin=new THREE.Vector3(),score=0,best=0,live=false,idle=true;
+    try{best=+(localStorage.getItem('csc_best')||0)}catch(e){}bs.textContent=best;
+    var FLOOR=-1.6+.9;
+    function kick(e){var r=canvas.getBoundingClientRect();var nx=((e.clientX-r.left)/r.width-.5)*2;
+      if(idle){idle=false;live=true;score=0;sc.textContent=0;hint.textContent='Keep it up!'}
+      if(!live){live=true;score=0;sc.textContent=0;hint.textContent='Keep it up!'}
+      if(pos.y<4.2){vel.y=.19+Math.random()*.03;vel.x=(-nx*.03)+(Math.random()-.5)*.02;spin.set((Math.random()-.5)*.3,(Math.random()-.5)*.3,-vel.x*3);score++;sc.textContent=score;
+        if(score>best){best=score;bs.textContent=best;try{localStorage.setItem('csc_best',best)}catch(e){}}
+        if(score===10){heroB.dataset.msg='Hi Challenge Sports Club! I scored 10 touches on your website. I\'d like to book a free trial.';bind(heroB)}}}
+    canvas.addEventListener('pointerdown',kick);
+    var visible=true,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,t0=performance.now();
+    new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(stage);
+    (function loop(t){requestAnimationFrame(loop);if(!visible)return;var tt=(t-t0)/1000;
+      if(idle){pos.set(0,.3+Math.abs(Math.sin(tt*2.2))*1.6,0);ball.rotation.y+=reduce?0:.02;ball.rotation.x+=reduce?0:.015}
+      else{vel.y-=.0075;pos.add(vel);
+        if(Math.abs(pos.x)>2.6){pos.x=Math.sign(pos.x)*2.6;vel.x*=-.6}
+        if(pos.y<FLOOR){pos.y=FLOOR;if(live){live=false;hint.textContent=score>=10?'Nice! '+score+' touches. Tap to go again':'Dropped at '+score+'. Tap to try again'}vel.y=Math.abs(vel.y)*.45;vel.x*=.8;if(Math.abs(vel.y)<.02)vel.y=0}
+        ball.rotation.x+=spin.x;ball.rotation.y+=spin.y;ball.rotation.z+=spin.z;spin.multiplyScalar(.99)}
+      ball.position.copy(pos);
+      var h=Math.max(0,pos.y-FLOOR);shadow.position.x=pos.x;shadow.scale.setScalar(1/(1+h*.35));shadow.material.opacity=.35/(1+h*.5);
+      R.render(S,C)})(t0);
+  }catch(err){console.warn(err)}
+})();
+</script>
+</body>
+</html>
